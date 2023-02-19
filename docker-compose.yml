@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  application:
+    image: dev/lisbag-server/application:0.1
+    container_name: aplication_lisbag_server_dev
+    build: 
+      context: ./
+      dockerfile: ./infra/docker-images/application/Dockerfile.dev
+  
+  reverse-proxy:
+    image: dev/lisbag-server/reverse-proxy:0.1
+    container_name: reverse_proxy_lisbag_server_dev
+    build: 
+      context: ./
+      dockerfile: ./infra/docker-images/nginx/Dockerfile.dev
+    ports:
+      - 80:80
+
+networks:
+  default:
+    name: lisbag-server-dev-network
