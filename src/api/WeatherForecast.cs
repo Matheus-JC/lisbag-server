@@ -1,4 +1,4 @@
-namespace Lisbag.api;
+namespace LisbagServer.api;
 
 public class WeatherForecast
 {

@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   application:
     image: dev/lisbag-server/application:0.1
@@ -8,6 +6,17 @@ services:
       context: ./
       dockerfile: ./infra/docker-images/application/Dockerfile.dev
   
+  relational-db:
+    image: dev/lisbag-server/relational-db:0.1
+    container_name: relational_db_lisbag_server_dev
+    build: 
+      context: ./
+      dockerfile: ./infra/docker-images/postgres/Dockerfile.dev
+    ports:
+      - 5432:5432
+    volumes:
+      - ./infra/docker-images/postgres/dev-data:/var/lib/postgresql/data
+
   reverse-proxy:
     image: dev/lisbag-server/reverse-proxy:0.1
     container_name: reverse_proxy_lisbag_server_dev
@@ -16,6 +25,24 @@ services:
       dockerfile: ./infra/docker-images/nginx/Dockerfile.dev
     ports:
       - 80:80
+
+  application-unit-test:
+    image: dev/lisbag-server/application-unit-test:0.1
+    container_name: application_unit_test_lisbag_server_dev
+    build:
+      context: ./
+      dockerfile: ./infra/docker-images/tests/Dockerfile.unit
+    profiles:
+      - unitTests
+  
+  application-integration-test:
+    image: dev/lisbag-server/application-integration-test:0.1
+    container_name: application_integration_test_lisbag_server_dev
+    build:
+      context: ./
+      dockerfile: ./infra/docker-images/tests/Dockerfile.integration
+    profiles:
+      - integrationTests
 
 networks:
   default:

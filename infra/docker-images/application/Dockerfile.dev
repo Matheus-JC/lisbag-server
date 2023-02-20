@@ -1,14 +1,14 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
 COPY ./src ./
-RUN dotnet restore
+# RUN dotnet restore
 RUN dotnet publish --output build
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /app
-
 COPY --from=build /app/build .
+
 ENV ASPNETCORE_URLS=http://+:5000
 ENV ASPNETCORE_ENVIRONMENT=Development
 
-ENTRYPOINT ["dotnet", "Lisbag.api.dll"]
+ENTRYPOINT ["dotnet", "LisbagServer.api.dll"]

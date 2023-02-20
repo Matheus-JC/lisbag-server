@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Lisbag.api.Controllers;
+namespace LisbagServer.api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
