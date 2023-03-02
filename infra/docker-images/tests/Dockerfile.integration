@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0
 WORKDIR /app/test
 
-COPY ./test/ .
+COPY ./tests/LisbagServerTests.sln .
+COPY ./tests/integration .
 RUN  dotnet restore
 
 ENTRYPOINT [ "dotnet", "test", "integration/LisbagServer.test.integration.csproj" ]

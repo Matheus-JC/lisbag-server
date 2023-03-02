@@ -1,13 +1,15 @@
 services:
   application:
-    image: dev/lisbag-server/application:0.1
+    image: dev/lisbag-server/application:1.0
     container_name: aplication_lisbag_server_dev
     build: 
       context: ./
       dockerfile: ./infra/docker-images/application/Dockerfile.dev
+    volumes:
+      - ./src:/src
   
   relational-db:
-    image: dev/lisbag-server/relational-db:0.1
+    image: dev/lisbag-server/relational-db:1.0
     container_name: relational_db_lisbag_server_dev
     build: 
       context: ./
@@ -18,7 +20,7 @@ services:
       - ./infra/docker-images/postgres/dev-data:/var/lib/postgresql/data
 
   reverse-proxy:
-    image: dev/lisbag-server/reverse-proxy:0.1
+    image: dev/lisbag-server/reverse-proxy:1.0
     container_name: reverse_proxy_lisbag_server_dev
     build: 
       context: ./
@@ -27,7 +29,7 @@ services:
       - 80:80
 
   application-unit-test:
-    image: dev/lisbag-server/application-unit-test:0.1
+    image: dev/lisbag-server/application-unit-test:1.0
     container_name: application_unit_test_lisbag_server_dev
     build:
       context: ./
@@ -36,7 +38,7 @@ services:
       - unitTests
   
   application-integration-test:
-    image: dev/lisbag-server/application-integration-test:0.1
+    image: dev/lisbag-server/application-integration-test:1.0
     container_name: application_integration_test_lisbag_server_dev
     build:
       context: ./

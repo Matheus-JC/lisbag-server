@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LisbagServer.Domain": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}
