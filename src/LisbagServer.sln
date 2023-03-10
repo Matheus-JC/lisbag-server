@@ -3,15 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Api", "Api\LisbagServer.Api.csproj", "{9548ACC4-E491-47A2-99E7-BB753625CFCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Api", "Api\LisbagServer.Api.csproj", "{2565DE35-70F1-430C-8839-C043EFDC37E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Application", "Application\LisbagServer.Application.csproj", "{F4CAC600-A4B1-445E-A44F-BBC84069290A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Application", "Application\LisbagServer.Application.csproj", "{ABA09ADC-59D8-4D66-AFB2-7726FC90EE79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Domain", "Domain\LisbagServer.Domain.csproj", "{D6A28722-F08D-4C7C-90CD-0BDA4CF8DF4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Domain", "Domain\LisbagServer.Domain.csproj", "{5A942302-0050-42DF-8728-B9C6163AC945}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{20BA7191-0844-4EDA-AA3C-755B3BB40543}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{A6D7F348-6793-48D6-A8BB-D08178DCB9D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Infra.Dal", "Infra\Dal\LisbagServer.Infra.Dal.csproj", "{1A36884F-5291-4025-9DB1-2061915D6D66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Infra.Dal", "Infra\Dal\LisbagServer.Infra.Dal.csproj", "{A2AFABAE-F69A-417F-8259-1FBA2E975A27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2BECDA17-5114-445E-B287-5E946EDE0E75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Tests.Unit", "Tests\Unit\LisbagServer.Tests.Unit.csproj", "{4A8D5CEB-B625-484A-8ED1-5C0753CAF949}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Tests.Integration", "Tests\Integration\LisbagServer.Tests.Integration.csproj", "{1571B763-75BD-4959-9983-4CCA7CD339FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,24 +28,34 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9548ACC4-E491-47A2-99E7-BB753625CFCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9548ACC4-E491-47A2-99E7-BB753625CFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9548ACC4-E491-47A2-99E7-BB753625CFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9548ACC4-E491-47A2-99E7-BB753625CFCF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4CAC600-A4B1-445E-A44F-BBC84069290A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4CAC600-A4B1-445E-A44F-BBC84069290A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4CAC600-A4B1-445E-A44F-BBC84069290A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4CAC600-A4B1-445E-A44F-BBC84069290A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D6A28722-F08D-4C7C-90CD-0BDA4CF8DF4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6A28722-F08D-4C7C-90CD-0BDA4CF8DF4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6A28722-F08D-4C7C-90CD-0BDA4CF8DF4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6A28722-F08D-4C7C-90CD-0BDA4CF8DF4B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A36884F-5291-4025-9DB1-2061915D6D66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A36884F-5291-4025-9DB1-2061915D6D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A36884F-5291-4025-9DB1-2061915D6D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A36884F-5291-4025-9DB1-2061915D6D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2565DE35-70F1-430C-8839-C043EFDC37E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2565DE35-70F1-430C-8839-C043EFDC37E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2565DE35-70F1-430C-8839-C043EFDC37E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2565DE35-70F1-430C-8839-C043EFDC37E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA09ADC-59D8-4D66-AFB2-7726FC90EE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA09ADC-59D8-4D66-AFB2-7726FC90EE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA09ADC-59D8-4D66-AFB2-7726FC90EE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA09ADC-59D8-4D66-AFB2-7726FC90EE79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A942302-0050-42DF-8728-B9C6163AC945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A942302-0050-42DF-8728-B9C6163AC945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A942302-0050-42DF-8728-B9C6163AC945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A942302-0050-42DF-8728-B9C6163AC945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2AFABAE-F69A-417F-8259-1FBA2E975A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2AFABAE-F69A-417F-8259-1FBA2E975A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2AFABAE-F69A-417F-8259-1FBA2E975A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2AFABAE-F69A-417F-8259-1FBA2E975A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A8D5CEB-B625-484A-8ED1-5C0753CAF949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A8D5CEB-B625-484A-8ED1-5C0753CAF949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A8D5CEB-B625-484A-8ED1-5C0753CAF949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A8D5CEB-B625-484A-8ED1-5C0753CAF949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1571B763-75BD-4959-9983-4CCA7CD339FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1571B763-75BD-4959-9983-4CCA7CD339FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1571B763-75BD-4959-9983-4CCA7CD339FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1571B763-75BD-4959-9983-4CCA7CD339FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{1A36884F-5291-4025-9DB1-2061915D6D66} = {20BA7191-0844-4EDA-AA3C-755B3BB40543}
+		{A2AFABAE-F69A-417F-8259-1FBA2E975A27} = {A6D7F348-6793-48D6-A8BB-D08178DCB9D1}
+		{4A8D5CEB-B625-484A-8ED1-5C0753CAF949} = {2BECDA17-5114-445E-B287-5E946EDE0E75}
+		{1571B763-75BD-4959-9983-4CCA7CD339FF} = {2BECDA17-5114-445E-B287-5E946EDE0E75}
 	EndGlobalSection
 EndGlobal

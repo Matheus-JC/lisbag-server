@@ -1,4 +1,4 @@
-namespace LisbagServer.test.integration;
+namespace LisbagServer.Tests.Integration;
 
 public class UnitTest1
 {
