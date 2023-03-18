@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
-COPY /src/*.sln .
+COPY LisbagServer.sln .
 COPY src/Api/*.csproj ./Api/
 COPY src/Application/*.csproj ./Application/
 COPY src/Domain/*.csproj ./Domain/

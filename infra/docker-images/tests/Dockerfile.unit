@@ -1,5 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0
 
-WORKDIR /src/Tests/Unit
+WORKDIR /app
+
+COPY ./tests/Unit /app/tests/Unit
+COPY ./src /app/src
+
+WORKDIR /app/tests/Unit
 
 ENTRYPOINT [ "dotnet", "test", "LisbagServer.Tests.Unit.csproj" ]

@@ -1,7 +1,7 @@
 services:
   application:
     image: dev/lisbag-server/application:1.0
-    container_name: aplication_lisbag_server_dev
+    container_name: application_lisbag_server_dev
     build: 
       context: ./
       dockerfile: ./infra/docker-images/application/Dockerfile.dev
@@ -34,8 +34,6 @@ services:
     build:
       context: ./
       dockerfile: ./infra/docker-images/tests/Dockerfile.unit
-    volumes:
-      - ./src/:/src
     profiles:
       - unitTests
   
@@ -45,8 +43,6 @@ services:
     build:
       context: ./
       dockerfile: ./infra/docker-images/tests/Dockerfile.integration
-    volumes:
-      - ./src/:/src
     profiles:
       - integrationTests
 

@@ -1,5 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0
 
-WORKDIR /src/Tests/Integration
+WORKDIR /app
+
+COPY ./tests/Integration /app/tests/Integration
+COPY ./src /app/src
+
+WORKDIR /app/tests/Integration
 
 ENTRYPOINT [ "dotnet", "test", "LisbagServer.Tests.Integration.csproj" ]

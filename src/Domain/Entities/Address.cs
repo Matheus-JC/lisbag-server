@@ -2,14 +2,20 @@ using LisbagServer.Domain.Enums;
 
 namespace LisbagServer.Domain.Entities;
 
-public class Address
+public class Address : BaseEntity
 {
     public string Name { get; set; }
     public int PostalCode { get; set; }
-    public string City { get; set; }
-    public string State { get; set; }
-    public string Country { get; set; }
-    public AddressType Type { get; set; }
+    public string? City { get; set; }
+    public string? State { get; set; }
+    public string? Country { get; set; }
+    public AddressType? Type { get; set; }
+
+    public Address(string name, int postalCode)
+    {
+        Name = name;
+        PostalCode = postalCode;
+    }
 
     public Address(string name, int postalCode, string city, string state, 
         string country, AddressType type)
