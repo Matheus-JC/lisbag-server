@@ -1,7 +1,7 @@
 FROM postgres:15.2
 
-ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=admin
+ENV POSTGRES_USER=dev_lisbag
+ENV POSTGRES_PASSWORD=5vEUShcHujUq
 ENV POSTGRES_DB=lisbag_server
 
 WORKDIR /var/lib/postgresql/data/

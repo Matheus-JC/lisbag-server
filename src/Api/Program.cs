@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc;
 using Api.Options;
+using LisbagServer.Infra.DI;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
 

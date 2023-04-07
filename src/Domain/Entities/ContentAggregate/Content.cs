@@ -1,10 +1,12 @@
-﻿namespace LisbagServer.Domain.Entities;
+﻿using LisbagServer.Domain.Entities.TagAggregate;
 
-public class Content : BaseEntity
+namespace LisbagServer.Domain.Entities.ContentAggregate;
+
+public class Content
 {
     public string Name { get; private set; }
     public bool IsFavorite { get; private set; }
-    public List<Tag> Tags { get; private set; }
+    public ICollection<Tag> Tags { get; private set; }
 
     public Content(string name)
     {

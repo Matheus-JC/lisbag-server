@@ -2,10 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers.V2;
 
-[ApiVersion("2.0")]
-[Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]
-public class ContentController : ControllerBase
+[Route("api/v{version:apiVersion}/[controller]")]
+[ApiVersion("2.0")]
+
+public class ProfileController : ControllerBase
 {
     [HttpGet]
     public IActionResult Index()

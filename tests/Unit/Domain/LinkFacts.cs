@@ -1,4 +1,4 @@
-using LisbagServer.Domain.Entities;
+using LisbagServer.Domain.Entities.ContentAggregate;
 using LisbagServer.Domain.Exceptions;
 
 namespace LisbagServer.Tests.Unit.Domain;

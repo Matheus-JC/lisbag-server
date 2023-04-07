@@ -5,29 +5,28 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7F1C591E-241B-4F8F-8419-5FD8692DC286}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Domain", "src\Domain\LisbagServer.Domain.csproj", "{F6F40AD0-3574-4D5A-BF75-FFD9B55529CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LisbagServer.Domain", "src\Domain\LisbagServer.Domain.csproj", "{F6F40AD0-3574-4D5A-BF75-FFD9B55529CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Application", "src\Application\LisbagServer.Application.csproj", "{59019490-CDFC-42CE-8459-ADA8D3F07D66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LisbagServer.Application", "src\Application\LisbagServer.Application.csproj", "{59019490-CDFC-42CE-8459-ADA8D3F07D66}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{120BF2C5-6388-42D6-9290-3EE7C8664B98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Infra.Dal", "src\Infra\Dal\LisbagServer.Infra.Dal.csproj", "{F6215A10-745B-477E-BF86-A024B44E3016}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LisbagServer.Infra.Dal", "src\Infra\Dal\LisbagServer.Infra.Dal.csproj", "{F6215A10-745B-477E-BF86-A024B44E3016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Api", "src\Api\LisbagServer.Api.csproj", "{4508B823-684B-47AF-9455-8F122C4F30F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LisbagServer.Api", "src\Api\LisbagServer.Api.csproj", "{4508B823-684B-47AF-9455-8F122C4F30F9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9C3D2409-758B-4E55-8E00-0E15D4073415}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Tests.Unit", "tests\Unit\LisbagServer.Tests.Unit.csproj", "{5024523B-76E6-4F77-B54F-F2CA7EA27F48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LisbagServer.Tests.Unit", "tests\Unit\LisbagServer.Tests.Unit.csproj", "{5024523B-76E6-4F77-B54F-F2CA7EA27F48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Tests.Integration", "tests\Integration\LisbagServer.Tests.Integration.csproj", "{80052DA4-3893-48E3-88A6-1A44ABD195F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LisbagServer.Tests.Integration", "tests\Integration\LisbagServer.Tests.Integration.csproj", "{80052DA4-3893-48E3-88A6-1A44ABD195F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisbagServer.Infra.DI", "src\Infra\DI\LisbagServer.Infra.DI.csproj", "{CC4932F4-8167-4493-B55E-322991B0F397}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F6F40AD0-3574-4D5A-BF75-FFD9B55529CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -54,6 +53,13 @@ Global
 		{80052DA4-3893-48E3-88A6-1A44ABD195F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80052DA4-3893-48E3-88A6-1A44ABD195F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80052DA4-3893-48E3-88A6-1A44ABD195F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC4932F4-8167-4493-B55E-322991B0F397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC4932F4-8167-4493-B55E-322991B0F397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC4932F4-8167-4493-B55E-322991B0F397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC4932F4-8167-4493-B55E-322991B0F397}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F6F40AD0-3574-4D5A-BF75-FFD9B55529CC} = {7F1C591E-241B-4F8F-8419-5FD8692DC286}
@@ -63,5 +69,9 @@ Global
 		{4508B823-684B-47AF-9455-8F122C4F30F9} = {7F1C591E-241B-4F8F-8419-5FD8692DC286}
 		{5024523B-76E6-4F77-B54F-F2CA7EA27F48} = {9C3D2409-758B-4E55-8E00-0E15D4073415}
 		{80052DA4-3893-48E3-88A6-1A44ABD195F0} = {9C3D2409-758B-4E55-8E00-0E15D4073415}
+		{CC4932F4-8167-4493-B55E-322991B0F397} = {120BF2C5-6388-42D6-9290-3EE7C8664B98}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33C9E944-E3D1-4877-9F03-612C25460797}
 	EndGlobalSection
 EndGlobal
