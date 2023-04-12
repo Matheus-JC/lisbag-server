@@ -1,4 +1,4 @@
-﻿using LisbagServer.Domain.Entities.ProfileAggregate;
+﻿using LisbagServer.Domain.Entities.UserProfileAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -31,12 +31,5 @@ public class AddressConfiguration : IEntityTypeConfiguration<Address>
 
         builder.Property(c => c.Type)
             .HasConversion<int>();
-
-        //string profileFkName = "ProfileId";
-
-        //builder.Property<int> (profileFkName);
-        //builder.HasOne<Profile>()
-        //    .WithMany()
-        //    .HasForeignKey(profileFkName);
     }
 }

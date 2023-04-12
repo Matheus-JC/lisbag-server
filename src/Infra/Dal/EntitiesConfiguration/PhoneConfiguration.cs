@@ -1,4 +1,4 @@
-﻿using LisbagServer.Domain.Entities.ProfileAggregate;
+﻿using LisbagServer.Domain.Entities.UserProfileAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -23,12 +23,5 @@ public class PhoneConfiguration : IEntityTypeConfiguration<Phone>
         builder.Property(x => x.Number)
             .HasMaxLength(9)
             .IsRequired();
-
-        //string profileFkName = "ProfileId";
-
-        //builder.Property<int>(profileFkName);
-        //builder.HasOne<Profile>()
-        //    .WithMany()
-        //    .HasForeignKey(profileFkName);
     }
 }

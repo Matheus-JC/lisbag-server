@@ -17,7 +17,6 @@ public class LinkFacts
             {
                 var link = new Link(contentName, url);
             });
-
         }
     }
 }

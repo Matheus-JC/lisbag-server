@@ -16,7 +16,7 @@ namespace LisbagServer.Infra.Dal.Migrations
                 name: "profile");
 
             migrationBuilder.CreateTable(
-                name: "profile",
+                name: "user_profile",
                 schema: "profile",
                 columns: table => new
                 {
@@ -31,7 +31,7 @@ namespace LisbagServer.Infra.Dal.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("pk_profile", x => x.id);
+                    table.PrimaryKey("pk_user_profile", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,16 +49,16 @@ namespace LisbagServer.Infra.Dal.Migrations
                     type = table.Column<int>(type: "integer", nullable: true),
                     created_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     last_modified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    profile_id = table.Column<int>(type: "integer", nullable: true)
+                    user_profile_id = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("pk_address", x => x.id);
                     table.ForeignKey(
-                        name: "fk_address_profile_profile_id",
-                        column: x => x.profile_id,
+                        name: "fk_address_user_profile_user_profile_id",
+                        column: x => x.user_profile_id,
                         principalSchema: "profile",
-                        principalTable: "profile",
+                        principalTable: "user_profile",
                         principalColumn: "id");
                 });
 
@@ -74,30 +74,30 @@ namespace LisbagServer.Infra.Dal.Migrations
                     number = table.Column<int>(type: "integer", maxLength: 9, nullable: false),
                     created_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     last_modified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    profile_id = table.Column<int>(type: "integer", nullable: true)
+                    user_profile_id = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("pk_phone", x => x.id);
                     table.ForeignKey(
-                        name: "fk_phone_profile_profile_id",
-                        column: x => x.profile_id,
+                        name: "fk_phone_user_profile_user_profile_id",
+                        column: x => x.user_profile_id,
                         principalSchema: "profile",
-                        principalTable: "profile",
+                        principalTable: "user_profile",
                         principalColumn: "id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "ix_address_profile_id",
+                name: "ix_address_user_profile_id",
                 schema: "profile",
                 table: "address",
-                column: "profile_id");
+                column: "user_profile_id");
 
             migrationBuilder.CreateIndex(
-                name: "ix_phone_profile_id",
+                name: "ix_phone_user_profile_id",
                 schema: "profile",
                 table: "phone",
-                column: "profile_id");
+                column: "user_profile_id");
         }
 
         /// <inheritdoc />
@@ -112,7 +112,7 @@ namespace LisbagServer.Infra.Dal.Migrations
                 schema: "profile");
 
             migrationBuilder.DropTable(
-                name: "profile",
+                name: "user_profile",
                 schema: "profile");
         }
     }

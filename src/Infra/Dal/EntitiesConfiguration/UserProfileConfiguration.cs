@@ -1,14 +1,14 @@
-﻿using LisbagServer.Domain.Entities.ProfileAggregate;
+﻿using LisbagServer.Domain.Entities.UserProfileAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LisbagServer.Infra.Dal.EntitiesConfiguration;
 
-public class ProfileConfiguration : IEntityTypeConfiguration<Profile>
+public class UserProfileConfiguration : IEntityTypeConfiguration<UserProfile>
 {
-    public void Configure(EntityTypeBuilder<Profile> builder)
+    public void Configure(EntityTypeBuilder<UserProfile> builder)
     {
-        builder.ToTable(nameof(Profile).ToLower());
+        builder.ToTable("user_profile");
 
         builder.HasKey(x => x.Id);
 

@@ -1,16 +1,15 @@
-﻿using LisbagServer.Domain.Entities;
-using LisbagServer.Domain.Entities.ProfileAggregate;
+﻿using LisbagServer.Domain.Entities.UserProfileAggregate;
 using LisbagServer.Infra.Dal.EntitiesConfiguration;
 using Microsoft.EntityFrameworkCore;
 
 namespace LisbagServer.Infra.Dal.Context;
 
-public sealed class ProfileDbContext : DbContext
+public sealed class UserProfileDbContext : DbContext
 {
-    public ProfileDbContext(DbContextOptions<ProfileDbContext> options) : base(options)
+    public UserProfileDbContext(DbContextOptions<UserProfileDbContext> options) : base(options)
     {}
 
-    public DbSet<Profile> Profiles { get; set; }
+    public DbSet<UserProfile> UserProfiles { get; set; }
     public DbSet<Address> Addresses { get; set; }
     public DbSet<Phone> Phones { get; set; }
 
@@ -18,7 +17,7 @@ public sealed class ProfileDbContext : DbContext
     {
         base.OnModelCreating(builder);
         builder.HasDefaultSchema("profile");
-        builder.ApplyConfiguration(new ProfileConfiguration());
+        builder.ApplyConfiguration(new UserProfileConfiguration());
         builder.ApplyConfiguration(new AddressConfiguration());
         builder.ApplyConfiguration(new PhoneConfiguration());
     }

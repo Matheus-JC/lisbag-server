@@ -1,6 +1,6 @@
-﻿namespace LisbagServer.Domain.Entities.ProfileAggregate;
+﻿namespace LisbagServer.Domain.Entities.UserProfileAggregate;
 
-public class Profile
+public class UserProfile
 {
     public int Id { get; }
     public string Name { get; private set; }
@@ -9,11 +9,10 @@ public class Profile
     public DateOnly? DateOfBirth { get; private set; }
     public DateTime CreatedDate { get; private set; } = DateTime.Now;
     public DateTime LastModified { get; private set; } = DateTime.Now;
-
     public ICollection<Address> Addresses { get; private set; }
     public ICollection<Phone> Phones { get; private set; }
 
-    public Profile(string name, string surname)
+    public UserProfile(string name, string surname)
     {
         Name = name;
         Surname = surname;

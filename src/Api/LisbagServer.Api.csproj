@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Infra\DI\LisbagServer.Infra.DI.csproj" />
+    <ProjectReference Include="..\Application\LisbagServer.Application.csproj" />
   </ItemGroup>
 
 </Project>

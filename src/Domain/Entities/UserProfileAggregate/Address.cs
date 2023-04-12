@@ -1,6 +1,6 @@
 using LisbagServer.Domain.Enums;
 
-namespace LisbagServer.Domain.Entities.ProfileAggregate;
+namespace LisbagServer.Domain.Entities.UserProfileAggregate;
 
 public class Address
 {

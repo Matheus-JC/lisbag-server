@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace LisbagServer.Infra.Dal.Migrations
 {
-    [DbContext(typeof(ProfileDbContext))]
-    [Migration("20230329011540_Initial")]
+    [DbContext(typeof(UserProfileDbContext))]
+    [Migration("20230411040731_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -26,7 +26,7 @@ namespace LisbagServer.Infra.Dal.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("LisbagServer.Domain.Entities.ProfileAggregate.Address", b =>
+            modelBuilder.Entity("LisbagServer.Domain.Entities.UserProfileAggregate.Address", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,10 +64,6 @@ namespace LisbagServer.Infra.Dal.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("postal_code");
 
-                    b.Property<int?>("ProfileId")
-                        .HasColumnType("integer")
-                        .HasColumnName("profile_id");
-
                     b.Property<string>("State")
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)")
@@ -77,16 +73,20 @@ namespace LisbagServer.Infra.Dal.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("type");
 
+                    b.Property<int?>("UserProfileId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_profile_id");
+
                     b.HasKey("Id")
                         .HasName("pk_address");
 
-                    b.HasIndex("ProfileId")
-                        .HasDatabaseName("ix_address_profile_id");
+                    b.HasIndex("UserProfileId")
+                        .HasDatabaseName("ix_address_user_profile_id");
 
                     b.ToTable("address", "profile");
                 });
 
-            modelBuilder.Entity("LisbagServer.Domain.Entities.ProfileAggregate.Phone", b =>
+            modelBuilder.Entity("LisbagServer.Domain.Entities.UserProfileAggregate.Phone", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -118,20 +118,20 @@ namespace LisbagServer.Infra.Dal.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("prefix");
 
-                    b.Property<int?>("ProfileId")
+                    b.Property<int?>("UserProfileId")
                         .HasColumnType("integer")
-                        .HasColumnName("profile_id");
+                        .HasColumnName("user_profile_id");
 
                     b.HasKey("Id")
                         .HasName("pk_phone");
 
-                    b.HasIndex("ProfileId")
-                        .HasDatabaseName("ix_phone_profile_id");
+                    b.HasIndex("UserProfileId")
+                        .HasDatabaseName("ix_phone_user_profile_id");
 
                     b.ToTable("phone", "profile");
                 });
 
-            modelBuilder.Entity("LisbagServer.Domain.Entities.ProfileAggregate.Profile", b =>
+            modelBuilder.Entity("LisbagServer.Domain.Entities.UserProfileAggregate.UserProfile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -170,28 +170,28 @@ namespace LisbagServer.Infra.Dal.Migrations
                         .HasColumnName("surname");
 
                     b.HasKey("Id")
-                        .HasName("pk_profile");
+                        .HasName("pk_user_profile");
 
-                    b.ToTable("profile", "profile");
+                    b.ToTable("user_profile", "profile");
                 });
 
-            modelBuilder.Entity("LisbagServer.Domain.Entities.ProfileAggregate.Address", b =>
+            modelBuilder.Entity("LisbagServer.Domain.Entities.UserProfileAggregate.Address", b =>
                 {
-                    b.HasOne("LisbagServer.Domain.Entities.ProfileAggregate.Profile", null)
+                    b.HasOne("LisbagServer.Domain.Entities.UserProfileAggregate.UserProfile", null)
                         .WithMany("Addresses")
-                        .HasForeignKey("ProfileId")
-                        .HasConstraintName("fk_address_profile_profile_id");
+                        .HasForeignKey("UserProfileId")
+                        .HasConstraintName("fk_address_user_profile_user_profile_id");
                 });
 
-            modelBuilder.Entity("LisbagServer.Domain.Entities.ProfileAggregate.Phone", b =>
+            modelBuilder.Entity("LisbagServer.Domain.Entities.UserProfileAggregate.Phone", b =>
                 {
-                    b.HasOne("LisbagServer.Domain.Entities.ProfileAggregate.Profile", null)
+                    b.HasOne("LisbagServer.Domain.Entities.UserProfileAggregate.UserProfile", null)
                         .WithMany("Phones")
-                        .HasForeignKey("ProfileId")
-                        .HasConstraintName("fk_phone_profile_profile_id");
+                        .HasForeignKey("UserProfileId")
+                        .HasConstraintName("fk_phone_user_profile_user_profile_id");
                 });
 
-            modelBuilder.Entity("LisbagServer.Domain.Entities.ProfileAggregate.Profile", b =>
+            modelBuilder.Entity("LisbagServer.Domain.Entities.UserProfileAggregate.UserProfile", b =>
                 {
                     b.Navigation("Addresses");
 

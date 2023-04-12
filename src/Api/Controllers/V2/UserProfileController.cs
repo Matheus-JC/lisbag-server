@@ -6,7 +6,7 @@ namespace Api.Controllers.V2;
 [Route("api/v{version:apiVersion}/[controller]")]
 [ApiVersion("2.0")]
 
-public class ProfileController : ControllerBase
+public class UserProfileController : ControllerBase
 {
     [HttpGet]
     public IActionResult Index()
