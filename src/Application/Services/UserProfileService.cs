@@ -17,15 +17,27 @@ public class UserProfileService : IUserProfileService
         _mapper = mapper;
     }
 
+    public UserProfileDTO Get(int id)
+    {
+        var userProfileEntity = _userProfileRepository.Get(id);
+        return _mapper.Map<UserProfileDTO>(userProfileEntity);
+    }
+
     public void Create(UserProfileDTO userProfileDTO)
     {
         var userProfileEntity = _mapper.Map<UserProfile>(userProfileDTO);
         _userProfileRepository.Create(userProfileEntity);
     }
 
-    public UserProfileDTO Get(int id)
+    public void Update(UserProfileDTO userProfileDTO)
+    {
+        var userProfileEntity = _mapper.Map<UserProfile>(userProfileDTO);
+        _userProfileRepository.Update(userProfileEntity);
+    }
+
+    public void Delete(int id)
     {
         var userProfileEntity = _userProfileRepository.Get(id);
-        return _mapper.Map<UserProfileDTO>(userProfileEntity);
+        _userProfileRepository.Delete(userProfileEntity);
     }
 }

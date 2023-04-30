@@ -7,6 +7,16 @@ services:
       dockerfile: ./infra/docker-images/application/Dockerfile.dev
     volumes:
       - ./src:/src
+      - /src/Api/obj
+      - /src/Api/bin
+      - /src/Application/obj
+      - /src/Application/bin
+      - /src/Domain/obj
+      - /src/Domain/bin
+      - /src/Infra/DI/obj
+      - /src/Infra/DI/bin
+      - /src/Infra/Dal/obj
+      - /src/Infra/Dal/bin
   
   relational-db:
     image: dev/lisbag-server/relational-db:1.0

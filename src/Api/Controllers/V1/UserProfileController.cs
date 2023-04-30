@@ -18,10 +18,12 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult Get(int id){
+    public IActionResult Get(int id)
+    {
         var userProfile = _userProfileService.Get(id);
 
-        if(userProfile == null){
+        if (userProfile == null)
+        {
             return NotFound("User profile not found");
         }
 
@@ -34,9 +36,37 @@ public class UserProfileController : ControllerBase
         _userProfileService.Create(userProfileDTO);
 
         return new CreatedAtRouteResult(
-            "Get", 
+            "Get",
             new { id = userProfileDTO.Id },
             userProfileDTO
         );
+    }
+
+    [HttpPut]
+    public IActionResult Update(int id, [FromBody] UserProfileDTO userProfileDTO)
+    {
+        if (id != userProfileDTO.Id || userProfileDTO == null)
+        {
+            return BadRequest();
+        }
+
+        _userProfileService.Update(userProfileDTO);
+
+        return Ok(userProfileDTO);
+    }
+
+    [HttpDelete]
+    public IActionResult Delete(int id)
+    {
+        var userProfile = _userProfileService.Get(id);
+
+        if (userProfile == null)
+        {
+            return NotFound("User profile not found");
+        }
+
+        _userProfileService.Delete(id);
+
+        return Ok(userProfile);
     }
 }

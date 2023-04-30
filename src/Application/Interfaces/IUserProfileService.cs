@@ -6,4 +6,6 @@ public interface IUserProfileService
 {
     UserProfileDTO Get(int id);
     void Create(UserProfileDTO userProfileDTO);
+    void Update(UserProfileDTO userProfileDTO);
+    void Delete(int id);
 }

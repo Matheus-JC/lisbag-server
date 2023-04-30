@@ -5,4 +5,6 @@ public interface IUserProfileRepository
 {
     UserProfile Get(int id);
     void Create(UserProfile userProfile);
+    void Update(UserProfile userProfile);
+    void Delete(UserProfile userProfile);
 }

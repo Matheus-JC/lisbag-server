@@ -13,16 +13,28 @@ public class UserProfileRepository : IUserProfileRepository
         _userProfileContext = profileContext;
     }
 
+    public UserProfile Get(int id)
+    {
+        var userProfile = _userProfileContext.UserProfiles.Find(id);
+
+        return userProfile ?? throw new Exception("not found exception");
+    }
+
     public void Create(UserProfile userProfile)
     {
         _userProfileContext.Add(userProfile);
         _userProfileContext.SaveChanges();
     }
 
-    public UserProfile Get(int id)
+    public void Update(UserProfile userProfile)
     {
-        var userProfile = _userProfileContext.UserProfiles.Find(id);
+        _userProfileContext.Update(userProfile);
+        _userProfileContext.SaveChanges();
+    }
 
-        return userProfile ?? throw new Exception("not found exception");
+    public void Delete(UserProfile userProfile)
+    {
+        _userProfileContext.Remove(userProfile);
+        _userProfileContext.SaveChanges();
     }
 }
