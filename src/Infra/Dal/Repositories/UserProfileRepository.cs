@@ -13,6 +13,11 @@ public class UserProfileRepository : IUserProfileRepository
         _userProfileContext = profileContext;
     }
 
+    public IEnumerable<UserProfile> GetAll()
+    {
+        return _userProfileContext.UserProfiles.ToList();
+    }
+
     public UserProfile Get(int id)
     {
         var userProfile = _userProfileContext.UserProfiles.Find(id);

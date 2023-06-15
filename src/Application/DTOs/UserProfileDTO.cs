@@ -2,7 +2,7 @@
 
 namespace LisbagServer.Application.DTOs;
 
-public class UserProfileDTO
+public record UserProfileDTO
 {
     public int Id { get; set; }
     public string? Name { get; set; }

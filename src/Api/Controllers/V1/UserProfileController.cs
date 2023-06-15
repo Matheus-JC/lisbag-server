@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Controllers.V1;
 
 [ApiController]
-[Route("api/v{version:apiVersion}/[controller]")]
+[Route(Routes.Base)]
 [ApiVersion("1.0")]
 
 public class UserProfileController : ControllerBase
@@ -18,11 +18,25 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpGet]
+    public IActionResult GetAll()
+    {
+        var userProfiles = _userProfileService.GetAll();
+
+        if (userProfiles is null)
+        {
+            return NotFound("User profiles not found");
+        }
+
+        return Ok(userProfiles);
+    }
+
+    [HttpGet]
+    [Route("{id}")]
     public IActionResult Get(int id)
     {
         var userProfile = _userProfileService.Get(id);
 
-        if (userProfile == null)
+        if (userProfile is null)
         {
             return NotFound("User profile not found");
         }
@@ -43,9 +57,10 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpPut]
+    [Route("{id}")]
     public IActionResult Update(int id, [FromBody] UserProfileDTO userProfileDTO)
     {
-        if (id != userProfileDTO.Id || userProfileDTO == null)
+        if (id != userProfileDTO.Id || userProfileDTO is null)
         {
             return BadRequest();
         }
@@ -56,11 +71,12 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpDelete]
+    [Route("{id}")]
     public IActionResult Delete(int id)
     {
         var userProfile = _userProfileService.Get(id);
 
-        if (userProfile == null)
+        if (userProfile is null)
         {
             return NotFound("User profile not found");
         }

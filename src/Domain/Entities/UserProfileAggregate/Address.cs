@@ -1,12 +1,13 @@
 using LisbagServer.Domain.Enums;
+using LisbagServer.Domain.ValueObjects;
 
 namespace LisbagServer.Domain.Entities.UserProfileAggregate;
 
 public class Address
 {
     public int Id { get; }
-    public string Name { get; set; }
-    public int PostalCode { get; set; }
+    public string Name { get; private set; }
+    public PostalCode PostalCode { get; private set; }
     public string? City { get; set; }
     public string? State { get; set; }
     public string? Country { get; set; }
@@ -14,20 +15,11 @@ public class Address
     public DateTime CreatedDate { get; private set; } = DateTime.Now;
     public DateTime LastModified { get; private set; } = DateTime.Now;
 
-    public Address(string name, int postalCode)
-    {
-        Name = name;
-        PostalCode = postalCode;
-    }
+    private Address() { }
 
-    public Address(string name, int postalCode, string city, string state,
-        string country, AddressType type)
+    public Address(string name, string postalCode)
     {
         Name = name;
-        PostalCode = postalCode;
-        City = city;
-        State = state;
-        Country = country;
-        Type = type;
+        PostalCode = new PostalCode(postalCode);
     }
 }

@@ -17,6 +17,12 @@ public class UserProfileService : IUserProfileService
         _mapper = mapper;
     }
 
+    public IEnumerable<UserProfileDTO> GetAll()
+    {
+        var userProfiles = _userProfileRepository.GetAll();
+        return _mapper.Map<IEnumerable<UserProfileDTO>>(userProfiles);
+    }
+
     public UserProfileDTO Get(int id)
     {
         var userProfileEntity = _userProfileRepository.Get(id);

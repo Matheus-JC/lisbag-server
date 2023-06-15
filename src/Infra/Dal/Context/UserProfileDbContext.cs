@@ -7,7 +7,7 @@ namespace LisbagServer.Infra.Dal.Context;
 public sealed class UserProfileDbContext : DbContext
 {
     public UserProfileDbContext(DbContextOptions<UserProfileDbContext> options) : base(options)
-    {}
+    { }
 
     public DbSet<UserProfile> UserProfiles { get; set; }
     public DbSet<Address> Addresses { get; set; }
