@@ -9,8 +9,6 @@ public record UserProfileDTO
     public string? Surname { get; set; }
     public string? Email { get; set; }
     public DateOnly? DateOfBirth { get; set; }
-    public DateTime? CreatedDate { get; set; }
-    public DateTime? LastModified { get; set; }
     public ICollection<Address>? Addresses { get; set; }
     public ICollection<Phone>? Phones { get; set; }
 }

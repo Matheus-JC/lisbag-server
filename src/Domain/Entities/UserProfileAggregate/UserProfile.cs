@@ -7,8 +7,8 @@ public class UserProfile
     public string Surname { get; private set; }
     public string? Email { get; private set; }
     public DateOnly? DateOfBirth { get; private set; }
-    public DateTime CreatedDate { get; private set; } = DateTime.Now;
-    public DateTime LastModified { get; private set; } = DateTime.Now;
+    public DateTime CreatedDate { get; private set; } = DateTime.UtcNow;
+    public DateTime LastModified { get; private set; } = DateTime.UtcNow;
     public ICollection<Address> Addresses { get; private set; }
     public ICollection<Phone> Phones { get; private set; }
 

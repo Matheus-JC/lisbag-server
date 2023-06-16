@@ -49,11 +49,7 @@ public class UserProfileController : ControllerBase
     {
         _userProfileService.Create(userProfileDTO);
 
-        return new CreatedAtRouteResult(
-            "Get",
-            new { id = userProfileDTO.Id },
-            userProfileDTO
-        );
+        return Ok();
     }
 
     [HttpPut]
