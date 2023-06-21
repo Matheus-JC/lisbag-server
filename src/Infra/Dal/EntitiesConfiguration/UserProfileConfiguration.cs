@@ -15,13 +15,16 @@ public class UserProfileConfiguration : IEntityTypeConfiguration<UserProfile>
         builder.Property(x => x.Name)
             .HasMaxLength(50)
             .IsRequired();
-        
+
         builder.Property(x => x.Surname)
             .HasMaxLength(50)
             .IsRequired();
 
-        builder.Property(x => x.Email)
-            .HasMaxLength(100);
+        builder.OwnsOne(x => x.Email)
+            .Property(x => x.Value)
+            .HasColumnName("email")
+            .HasMaxLength(100)
+            .IsRequired();
 
         builder.Property(x => x.DateOfBirth);
 

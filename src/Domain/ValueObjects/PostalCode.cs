@@ -1,21 +1,27 @@
 using System.Text.RegularExpressions;
+using LisbagServer.Domain.Exceptions;
 
 namespace LisbagServer.Domain.ValueObjects;
 
 public class PostalCode
 {
-    public PostalCode(string code)
+    public string Value { get; private set; } = string.Empty;
+
+    protected PostalCode()
     {
-        Code = PostalCode.IsValid(code)
-            ? code
-            : throw new Exception("Postal Code is not valid");
     }
 
-    public string Code { get; private set; }
+    public PostalCode(string postalCode)
+    {
+        Value = IsValid(postalCode)
+            ? postalCode
+            : throw new DomainException("Postal Code is not valid");
+    }
 
     public static bool IsValid(string postalCode)
     {
-        Regex postalCodeValidation = new Regex(@"^[0234567]\d{4}$");
-        return postalCodeValidation.Match(postalCode).Success;
+        string pattern = @"^[0234567]\d{4}$";
+        var postalCodeValidation = new Regex(pattern);
+        return postalCodeValidation.IsMatch(postalCode);
     }
 }

@@ -17,7 +17,7 @@ public class AddressConfiguration : IEntityTypeConfiguration<Address>
             .IsRequired();
 
         builder.OwnsOne(x => x.PostalCode)
-            .Property(x => x.Code)
+            .Property(x => x.Value)
             .HasColumnName("postal_code")
             .HasMaxLength(8)
             .IsRequired();

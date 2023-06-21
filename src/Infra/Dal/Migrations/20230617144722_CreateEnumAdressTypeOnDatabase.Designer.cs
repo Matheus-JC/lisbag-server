@@ -3,6 +3,7 @@ using System;
 using LisbagServer.Infra.Dal.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LisbagServer.Infra.Dal.Migrations
 {
     [DbContext(typeof(UserProfileDbContext))]
-    partial class UserProfileDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230617144722_CreateEnumAdressTypeOnDatabase")]
+    partial class CreateEnumAdressTypeOnDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,6 +144,11 @@ namespace LisbagServer.Infra.Dal.Migrations
                         .HasColumnType("date")
                         .HasColumnName("date_of_birth");
 
+                    b.Property<string>("Email")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("email");
+
                     b.Property<DateTime>("LastModified")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("last_modified");
@@ -176,7 +184,7 @@ namespace LisbagServer.Infra.Dal.Migrations
                                 .HasColumnType("integer")
                                 .HasColumnName("id");
 
-                            b1.Property<string>("Value")
+                            b1.Property<string>("Code")
                                 .IsRequired()
                                 .HasMaxLength(8)
                                 .HasColumnType("character varying(8)")
@@ -201,33 +209,6 @@ namespace LisbagServer.Infra.Dal.Migrations
                         .WithMany("Phones")
                         .HasForeignKey("UserProfileId")
                         .HasConstraintName("fk_phone_user_profile_user_profile_id");
-                });
-
-            modelBuilder.Entity("LisbagServer.Domain.Entities.UserProfileAggregate.UserProfile", b =>
-                {
-                    b.OwnsOne("LisbagServer.Domain.ValueObjects.Email", "Email", b1 =>
-                        {
-                            b1.Property<int>("UserProfileId")
-                                .HasColumnType("integer")
-                                .HasColumnName("id");
-
-                            b1.Property<string>("Value")
-                                .IsRequired()
-                                .HasMaxLength(100)
-                                .HasColumnType("character varying(100)")
-                                .HasColumnName("email");
-
-                            b1.HasKey("UserProfileId");
-
-                            b1.ToTable("user_profile", "profile");
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserProfileId")
-                                .HasConstraintName("fk_user_profile_user_profile_id");
-                        });
-
-                    b.Navigation("Email")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("LisbagServer.Domain.Entities.UserProfileAggregate.UserProfile", b =>
