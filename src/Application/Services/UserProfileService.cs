@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LisbagServer.Application.DTOs;
+using LisbagServer.Application.DTOs.UserProfile;
 using LisbagServer.Application.Interfaces;
 using LisbagServer.Domain.Entities.UserProfileAggregate;
 using LisbagServer.Domain.Interfaces.Repositories;
@@ -35,7 +35,7 @@ public class UserProfileService : IUserProfileService
         _userProfileRepository.Create(userProfileEntity);
     }
 
-    public void Update(UserProfileDTO userProfileDTO)
+    public void Update(UserProfileDTOUpdate userProfileDTO)
     {
         var userProfileEntity = _mapper.Map<UserProfile>(userProfileDTO);
         _userProfileRepository.Update(userProfileEntity);

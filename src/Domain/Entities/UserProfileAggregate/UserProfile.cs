@@ -8,29 +8,29 @@ public class UserProfile
     public DateOnly? _dateOfBirth;
 
     public int Id { get; private set; }
-    public string Name { get; private set; } = string.Empty;
-    public string Surname { get; private set; } = string.Empty;
+    public required string Name { get; set; }
+    public required string Surname { get; set; }
     public DateTime CreatedDate { get; private set; } = DateTime.UtcNow;
     public DateTime LastModified { get; private set; } = DateTime.UtcNow;
     public ICollection<Address> Addresses { get; private set; } = new List<Address>();
     public ICollection<Phone> Phones { get; private set; } = new List<Phone>();
-    public Email Email { get; private set; } = null!;
+    public required Email Email { get; set; }
     public DateOnly? DateOfBirth
     {
         get { return _dateOfBirth; }
         set { SetDateOfBirth(value); }
     }
 
-    protected UserProfile()
-    {
-    }
+    // protected UserProfile()
+    // {
+    // }
 
-    public UserProfile(string name, string surname, string email)
-    {
-        Name = name;
-        Surname = surname;
-        Email = new Email(email);
-    }
+    // public UserProfile(string name, string surname, string email)
+    // {
+    //     Name = name;
+    //     Surname = surname;
+    //     Email = new Email(email);
+    // }
 
     public void AddAddress(Address address)
     {

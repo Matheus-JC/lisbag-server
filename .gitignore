@@ -1,6 +1,5 @@
 bin
 obj
 dev-data
-.vscode
 .vs
 *.user

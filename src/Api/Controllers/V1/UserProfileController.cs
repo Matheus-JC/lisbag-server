@@ -1,4 +1,4 @@
-using LisbagServer.Application.DTOs;
+using LisbagServer.Application.DTOs.UserProfile;
 using LisbagServer.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -54,7 +54,7 @@ public class UserProfileController : ControllerBase
 
     [HttpPut]
     [Route("{id}")]
-    public IActionResult Update(int id, [FromBody] UserProfileDTO userProfileDTO)
+    public IActionResult Update(int id, [FromBody] UserProfileDTOUpdate userProfileDTO)
     {
         if (id != userProfileDTO.Id || userProfileDTO is null)
         {

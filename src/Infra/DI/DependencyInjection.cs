@@ -28,6 +28,7 @@ public static class DependencyInjection
         services.AddScoped<IUserProfileService, UserProfileService>();
 
         services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
+        services.AddAutoMapper(typeof(TypeConversionMappingProfile));
 
         return services;
     }

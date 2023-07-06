@@ -1,5 +1,6 @@
 using LisbagServer.Domain.Entities.UserProfileAggregate;
 using LisbagServer.Domain.Exceptions;
+using LisbagServer.Domain.ValueObjects;
 
 namespace LisbagServer.Tests.Unit.Domain.Entities.UserProfileAggregate;
 
@@ -7,7 +8,12 @@ public class UserProfileFacts
 {
     public static UserProfile GetUserProfileForTest()
     {
-        return new UserProfile("Xpto", "Test", "xpto@test.com");
+        return new UserProfile
+        {
+            Name = "Xpto",
+            Surname = "Test",
+            Email = new Email("xpto@test.com")
+        };
     }
 
     public class TheDateOfBirthProperty

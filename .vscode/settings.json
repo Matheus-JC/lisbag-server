@@ -1,0 +1,6 @@
+{
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
+    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+    "dotnet.defaultSolution": "LisbagServer.sln"
+}

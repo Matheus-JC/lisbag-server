@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Docker .NET Attach (Preview)",
+            "type": "docker",
+            "request": "attach",
+            "platform": "netCore",
+            "containerName": "application_lisbag_server_dev",
+            "processName": "LisbagServer.Api",
+            "sourceFileMap": {
+                "/src": "${workspaceFolder}/src"
+            }
+        },
+    ]
+}
